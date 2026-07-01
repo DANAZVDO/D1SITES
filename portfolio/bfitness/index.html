@@ -82,6 +82,9 @@
             .feature-grid { grid-template-columns:1fr; }
             .feature-card:first-child,.feature-card:last-child { border-radius:0; }
             .stat-block { grid-template-columns:1fr; }
+            .plans-scroll { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:16px; padding:0 20px 16px; margin:0 -20px; }
+            .plans-scroll::-webkit-scrollbar { display:none; }
+            .plans-scroll .plan-card { flex:0 0 280px; scroll-snap-align:center; }
         }
     </style>
 </head>
@@ -193,7 +196,7 @@
             <h2 style="font-size:clamp(32px,5vw,52px);font-weight:800;line-height:1.1;">Escolha seu <span style="color:var(--gold);">plano</span></h2>
             <p style="color:var(--text-dim);margin-top:12px;">Aula experimental gratuita em todos os planos</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;" class="reveal">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;" class="reveal plans-scroll">
             <div class="plan-card">
                 <h3 style="font-size:22px;font-weight:700;">Mensal</h3>
                 <div class="plan-price">R$99<span style="font-size:16px;">/mês</span></div>
@@ -229,6 +232,11 @@
                 </div>
                 <a href="#contato" class="btn-outline" style="width:100%;justify-content:center;">Começar</a>
             </div>
+        </div>
+        <div class="plans-dots" style="display:none;justify-content:center;gap:8px;margin-top:20px;">
+            <span class="plan-dot active" style="width:10px;height:10px;border-radius:50%;background:var(--gold);transition:all .3s;"></span>
+            <span class="plan-dot" style="width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .3s;"></span>
+            <span class="plan-dot" style="width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .3s;"></span>
         </div>
     </div>
 </section>
@@ -272,6 +280,15 @@
 <script>
 lucide.createIcons();
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+
+/* Plans carousel on mobile */
+const plansScroll=document.querySelector('.plans-scroll');
+const plansDots=document.querySelector('.plans-dots');
+const dots=document.querySelectorAll('.plan-dot');
+function updateCarousel(){if(window.innerWidth<=768){plansDots.style.display='flex'}else{plansDots.style.display='none'}}
+updateCarousel();window.addEventListener('resize',updateCarousel);
+if(plansScroll){plansScroll.addEventListener('scroll',()=>{const idx=Math.round(plansScroll.scrollLeft/(280+16));dots.forEach((d,i)=>{d.classList.toggle('active',i===idx);d.style.background=i===idx?'var(--gold)':'var(--border)';})})}
+
 const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>

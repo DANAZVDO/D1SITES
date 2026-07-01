@@ -163,6 +163,11 @@
             position: fixed; top: 0; left: 0; z-index: 0; pointer-events: none;
             opacity: 0.4;
         }
+        @media (max-width: 768px) {
+            .pricing-scroll { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:16px; padding:0 20px 16px; margin:0 -20px; }
+            .pricing-scroll::-webkit-scrollbar { display:none; }
+            .pricing-scroll > * { flex:0 0 300px; scroll-snap-align:center; }
+        }
     </style>
 </head>
 <body class="font-body bg-bg text-text-primary antialiased noise-overlay">
@@ -579,7 +584,7 @@
             </p>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-scroll">
             <!-- Landing Page -->
             <div class="reveal card-hover bg-bg-card border border-gold/30 rounded-3xl p-8 cursor-pointer relative shadow-[0_0_30px_-10px_rgba(200,168,78,0.1)]">
                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red text-white text-xs font-bold px-4 py-1 rounded-full">MAIS POPULAR</div>
@@ -652,6 +657,11 @@
 
         <div class="reveal text-center mt-8">
             <p class="text-text-muted text-sm">Precisa de algo personalizado? <a href="#contato" class="text-gold font-medium hover:underline cursor-pointer">Solicite um orçamento</a></p>
+        </div>
+        <div class="pricing-dots" style="display:none;justify-content:center;gap:8px;margin-top:20px;">
+            <span class="p-dot active" style="width:10px;height:10px;border-radius:50%;background:var(--gold);"></span>
+            <span class="p-dot" style="width:10px;height:10px;border-radius:50%;background:var(--border);"></span>
+            <span class="p-dot" style="width:10px;height:10px;border-radius:50%;background:var(--border);"></span>
         </div>
     </div>
 </section>
@@ -1372,6 +1382,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+/* Pricing carousel on mobile */
+const pScroll=document.querySelector('.pricing-scroll');
+const pDots=document.querySelector('.pricing-dots');
+const pds=document.querySelectorAll('.p-dot');
+function updatePricingCarousel(){if(window.innerWidth<=768){pDots.style.display='flex'}else{pDots.style.display='none'}}
+updatePricingCarousel();window.addEventListener('resize',updatePricingCarousel);
+if(pScroll){pScroll.addEventListener('scroll',()=>{const idx=Math.round(pScroll.scrollLeft/(300+16));pds.forEach((d,i)=>{d.classList.toggle('active',i===idx)})})}
 </script>
 </body>
 </html>
