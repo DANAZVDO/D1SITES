@@ -1017,7 +1017,8 @@ const menuClose = document.getElementById('menuClose');
 const mobileMenu = document.getElementById('mobileMenu');
 function openMenu() { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
-menuToggle.addEventListener('click', openMenu);
+function toggleMenu() { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); }
+menuToggle.addEventListener('click', toggleMenu);
 menuClose.addEventListener('click', closeMenu);
 document.querySelectorAll('[data-nav-close]').forEach(link => link.addEventListener('click', closeMenu));
 
