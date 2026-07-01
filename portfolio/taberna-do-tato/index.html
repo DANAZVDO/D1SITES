@@ -28,7 +28,7 @@
         .nav-link:hover { color:var(--preto); }
 
         .logo-text { font-family:'Alfa Slab One',cursive; color:var(--preto); text-shadow:2px 2px 0 var(--terracota); line-height:1; text-align:center; }
-        .logo-text .t iny { font-size:12px; display:block; letter-spacing:4px; text-shadow:none; color:var(--terracota); font-family:'Roboto Slab',serif; }
+        .logo-text .tiny { font-size:12px; display:block; letter-spacing:4px; text-shadow:none; color:var(--terracota); font-family:'Roboto Slab',serif; }
 
         .btn-terracota { display:inline-flex; align-items:center; gap:8px; background:var(--terracota); color:var(--branco); padding:14px 28px; border-radius:8px; font-weight:700; font-size:14px; text-decoration:none; transition:all .3s; border:none; cursor:pointer; font-family:'Roboto Slab',serif; }
         .btn-terracota:hover { background:var(--terracota-claro); transform:translateY(-2px); box-shadow:0 8px 24px rgba(179,90,50,.25); }
@@ -61,6 +61,12 @@
         .reveal { opacity:0; transform:translateY(30px); transition:all .8s ease; }
         .reveal.visible { opacity:1; transform:translateY(0); }
 
+        .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--preto);}
+        .mobile-menu-overlay{position:fixed;inset:0;z-index:99;display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+        .mobile-menu-overlay.open{display:flex;}
+        .nav-links-desktop{display:flex;}
+        @media(max-width:768px){.hamburger{display:block}.nav-links-desktop{display:none!important}}
+
         @media(max-width:768px) {
             .hero-content { grid-template-columns:1fr; }
             .hero-left { padding:120px 24px 40px; }
@@ -75,10 +81,22 @@
         <div class="logo-text" style="font-size:28px;">TABERNA<br><span style="font-size:18px;">DO TATO</span></div>
         <span style="font-size:9px;display:block;text-align:center;letter-spacing:4px;color:var(--terracota);font-family:'Roboto Slab',serif;margin-top:2px;">RESTAURANTE</span>
     </a>
-    <div style="display:flex;gap:28px;align-items:center;">
+    <div class="nav-links-desktop" style="display:flex;gap:28px;align-items:center;">
         <a href="#cardapio" class="nav-link">Cardápio</a>
         <a href="#avaliacoes" class="nav-link">Avaliações</a>
+        <button class="hamburger md:hidden" onclick="toggleMobileMenu()" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <a href="#contato" class="btn-terracota" style="padding:10px 22px;font-size:12px;">Reservar</a>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenu" style="background:rgba(232,216,174,0.98);backdrop-filter:blur(20px);">
+        <button style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:var(--preto);" onclick="closeMobileMenu()">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <a href="#cardapio" class="nav-link" style="font-size:20px;color:var(--preto);">Cardápio</a>
+        <a href="#avaliacoes" class="nav-link" style="font-size:20px;color:var(--preto);">Avaliações</a>
+        <a href="#contato" class="btn-terracota" style="font-size:16px;">Reservar</a>
     </div>
 </nav>
 
@@ -259,6 +277,10 @@ const heroVideo=document.getElementById('heroVideo');
 if(heroVideo){heroVideo.playbackRate=0.8;}
 const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':''}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('#mobileMenu a').forEach(l=>l.addEventListener('click',closeMobileMenu));
 </script>
 </body>
 </html>

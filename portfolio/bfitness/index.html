@@ -77,6 +77,12 @@
         .contact-card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:32px; text-align:center; transition:all .3s; text-decoration:none; color:var(--text); display:block; }
         .contact-card:hover { border-color:rgba(242,209,90,.2); }
 
+        .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text);}
+        .mobile-menu-overlay{position:fixed;inset:0;z-index:99;display:none;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+        .mobile-menu-overlay.open{display:flex;}
+        .nav-links-desktop{display:flex;}
+        @media(max-width:768px){.hamburger{display:block}.nav-links-desktop{display:none!important}}
+
         @media(max-width:768px) {
             .hero-content { grid-template-columns:1fr; gap:40px; }
             .feature-grid { grid-template-columns:1fr; }
@@ -101,10 +107,22 @@
             <div class="sub">FT FITNESS</div>
         </div>
     </a>
-    <div style="display:flex;gap:32px;align-items:center;">
+    <div class="nav-links-desktop" style="display:flex;gap:32px;align-items:center;">
         <a href="#estrutura" class="nav-link">Estrutura</a>
         <a href="#planos" class="nav-link">Planos</a>
+        <button class="hamburger md:hidden" onclick="toggleMobileMenu()" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <a href="#contato" class="btn-gold" style="padding:10px 24px;font-size:13px;">Matricule-se</a>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenu" style="background:rgba(28,28,31,0.98);backdrop-filter:blur(20px);">
+        <button style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:var(--text);" onclick="closeMobileMenu()">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <a href="#estrutura" class="nav-link" style="font-size:20px;">Estrutura</a>
+        <a href="#planos" class="nav-link" style="font-size:20px;">Planos</a>
+        <a href="#contato" class="btn-gold" style="font-size:16px;">Matricule-se</a>
     </div>
 </nav>
 
@@ -291,6 +309,10 @@ if(plansScroll){plansScroll.addEventListener('scroll',()=>{const idx=Math.round(
 
 const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('open')?'hidden':''}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+document.querySelectorAll('#mobileMenu a').forEach(l=>l.addEventListener('click',closeMobileMenu));
 </script>
 </body>
 </html>
