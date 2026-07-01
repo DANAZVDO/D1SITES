@@ -84,11 +84,11 @@
     <div class="nav-links-desktop" style="display:flex;gap:28px;align-items:center;">
         <a href="#cardapio" class="nav-link">Cardápio</a>
         <a href="#avaliacoes" class="nav-link">Avaliações</a>
-        <button class="hamburger md:hidden" onclick="toggleMobileMenu()" aria-label="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
         <a href="#contato" class="btn-terracota" style="padding:10px 22px;font-size:12px;">Reservar</a>
     </div>
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
 
     <div class="mobile-menu-overlay" id="mobileMenu" style="background:rgba(232,216,174,0.98);backdrop-filter:blur(20px);">
         <button style="position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:var(--preto);" onclick="closeMobileMenu()">
