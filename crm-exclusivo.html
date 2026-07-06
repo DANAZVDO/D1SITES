@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Exclusivo — D1OS Sites</title>
+    <meta name="description" content="CRM personalizado com WhatsApp integrado, automações inteligentes e painel administrativo. Sistema completo sob medida para seu negócio.">
+    <meta name="theme-color" content="#050510">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    'bg-deep':'#050510','bg-card':'#0A0A20','bg-elevated':'#0E0E2A',
+                    border:'#1A1A3E','border-light':'#28286A',
+                    gold:'#C8A84E','gold-light':'#E2CC7A','gold-dim':'#8B7535',
+                    red:'#DC2626','red-hover':'#EF4444',
+                    'text-primary':'#F0EEE4','text-secondary':'#9090A0','text-muted':'#585878',
+                },
+                fontFamily: { heading:['Playfair Display','Georgia','serif'], body:['Sora','system-ui','sans-serif'] },
+            }},
+        }
+    </script>
+    <style>
+        *,*::before,*::after{box-sizing:border-box}
+        @media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+        :root{--ease-out:cubic-bezier(0.16,1,0.3,1)}
+        .gold-text{background:linear-gradient(135deg,#E2CC7A 0%,#C8A84E 40%,#8B7535 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .btn-primary{background:linear-gradient(135deg,#DC2626,#B91C1C);transition:all .25s var(--ease-out)}
+        .btn-primary:hover{background:linear-gradient(135deg,#EF4444,#DC2626);box-shadow:0 12px 32px rgba(220,38,38,.3);transform:translateY(-2px)}
+        .btn-primary:active{transform:scale(.97)}
+        .btn-magnetic{transition:transform .2s ease}
+        .card-premium{transition:transform .4s var(--ease-out),box-shadow .4s var(--ease-out),border-color .3s ease}
+        .card-premium:hover{transform:translateY(-4px);border-color:rgba(200,168,78,.3);box-shadow:0 20px 40px -12px rgba(200,168,78,.06)}
+        .glass-panel{background:rgba(10,10,32,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(200,168,78,.08)}
+        .dot-pattern{background-image:radial-gradient(rgba(200,168,78,.05) 1px,transparent 1px);background-size:20px 20px}
+        .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        .spotlight{position:relative;overflow:hidden}
+        .spotlight::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(200,168,78,.05),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:0}
+        .spotlight:hover::before{opacity:1}
+        .noise-overlay::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+        input:focus,textarea:focus,select:focus{outline:none}
+    </style>
+</head>
+<body class="font-body bg-bg-deep text-text-primary antialiased noise-overlay">
+
+<nav class="fixed top-0 left-0 right-0 z-50">
+    <div class="glass-panel border-b border-border/40">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="MARCA-LINHA.png" alt="D1 Consulting" class="h-8 w-auto">
+                <span class="hidden sm:inline text-xs font-medium text-gold-dim tracking-widest uppercase border-l border-border pl-3">Sites</span>
+            </a>
+            <a href="index.html#precos" class="text-sm text-text-secondary hover:text-text-primary transition-colors cursor-pointer flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="pt-28 pb-20 lg:pt-36 lg:pb-28 px-6 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        <div class="flex-1 reveal text-center lg:text-left">
+            <span class="text-xs font-semibold text-gold tracking-[0.2em] uppercase">Produto</span>
+            <h1 class="font-heading text-5xl lg:text-6xl font-bold mt-4 mb-6 leading-tight tracking-tight">
+                CRM Exclusivo<br><span class="gold-text">sob medida.</span>
+            </h1>
+            <p class="text-lg text-text-secondary max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                Sistema completo de gestão de clientes, WhatsApp integrado e automações inteligentes. Desenvolvido especificamente para os processos do seu negócio.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="#contato" class="btn-primary inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl text-lg font-semibold cursor-pointer group btn-magnetic">
+                    Solicitar orçamento <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="index.html#agendar" class="border border-gold/30 text-gold hover:bg-gold/5 font-semibold px-8 py-4 rounded-xl cursor-pointer transition-all duration-200 btn-magnetic">
+                    Agendar visita
+                </a>
+            </div>
+            <div class="mt-8 inline-flex items-center gap-2 bg-bg-elevated border border-gold/30 rounded-full px-5 py-2">
+                <span class="text-gold font-bold text-base font-heading">Valor</span>
+                <span class="text-text-muted text-sm">A Combinar — de acordo com o projeto</span>
+            </div>
+        </div>
+        <div class="flex-1 reveal w-full max-w-lg">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-gold/10 to-red/5 rounded-3xl blur-xl"></div>
+                <div class="relative bg-bg-card border border-border rounded-3xl p-1 shadow-2xl">
+                    <div class="bg-bg-deep rounded-[calc(1.5rem-4px)] overflow-hidden">
+                        <div class="bg-bg-elevated border-b border-border px-5 py-3 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red/60"></span><span class="w-3 h-3 rounded-full bg-gold-dim/60"></span><span class="w-3 h-3 rounded-full bg-gray-500/60"></span>
+                            <span class="ml-2 text-xs text-text-muted">CRM — Dashboard</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="h-16 bg-bg-elevated rounded-xl flex items-center justify-center"><span class="text-gold text-lg font-bold">247</span></div>
+                                <div class="h-16 bg-bg-elevated rounded-xl flex items-center justify-center"><span class="text-text-secondary text-lg font-bold">18</span></div>
+                                <div class="h-16 bg-bg-elevated rounded-xl flex items-center justify-center"><span class="text-green-400 text-lg font-bold">94%</span></div>
+                            </div>
+                            <div class="flex gap-2 mb-3"><div class="flex-1 h-8 bg-bg-elevated rounded-lg flex items-center px-3 text-xs text-text-muted"><span class="w-1.5 h-1.5 rounded-full bg-green-400 mr-2"></span> Maria Silva</div></div>
+                            <div class="flex gap-2 mb-3"><div class="flex-1 h-8 bg-bg-elevated rounded-lg flex items-center px-3 text-xs text-text-muted"><span class="w-1.5 h-1.5 rounded-full bg-gold-dim mr-2"></span> João M.</div></div>
+                            <div class="flex gap-2 mb-3"><div class="flex-1 h-8 bg-bg-elevated rounded-lg flex items-center px-3 text-xs text-text-muted"><span class="w-1.5 h-1.5 rounded-full bg-gold-dim mr-2"></span> Ana Lima</div></div>
+                            <div class="flex gap-2"><div class="flex-1 h-8 bg-red/10 border border-red/20 rounded-lg flex items-center px-3 text-xs text-red">+ 5 novas conversas</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 lg:py-28 px-6 bg-bg-card dot-pattern">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-xs font-semibold text-gold tracking-[0.2em] uppercase">O que está incluído</span>
+            <h2 class="font-heading text-4xl font-bold mt-4 mb-6">Um <span class="gold-text">CRM</span> que trabalha por você</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="users" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Gestão de Clientes</h3><p class="text-text-secondary text-sm">Cadastro completo com histórico de interações, tags, segmentação e campos personalizados.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="message-circle" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">WhatsApp Integrado</h3><p class="text-text-secondary text-sm">Inbox unificado para toda equipe. Múltiplos atendentes no mesmo número com histórico.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="workflow" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Automações Inteligentes</h3><p class="text-text-secondary text-sm">Respostas automáticas por palavra-chave, horário e primeiro contato. Funil que não dorme.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="layout-dashboard" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Painel Administrativo</h3><p class="text-text-secondary text-sm">Dashboard com métricas em tempo real: conversas, tempo de resposta e desempenho da equipe.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="file-text" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Templates de Resposta</h3><p class="text-text-secondary text-sm">Biblioteca de mensagens com variáveis dinâmicas. Atendimento rápido e padronizado.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="bar-chart-3" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Relatórios e Métricas</h3><p class="text-text-secondary text-sm">Desempenho do time, volume de atendimentos e satisfação do cliente.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="shield" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">LGPD Compliance</h3><p class="text-text-secondary text-sm">Dados protegidos conforme a legislação. Criptografia, backup e política de privacidade.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="smartphone" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Acesso Mobile</h3><p class="text-text-secondary text-sm">Painel responsivo. Atenda seus clientes do celular, tablet ou computador.</p></div></div>
+            <div class="reveal card-premium bg-bg-deep border border-border rounded-3xl p-8 spotlight cursor-default"><div class="relative z-10"><i data-lucide="headphones" class="w-8 h-8 text-gold mb-4"></i><h3 class="font-heading text-lg font-semibold mb-2">Suporte Dedicado</h3><p class="text-text-secondary text-sm">Acompanhamento durante e após implantação. Treinamento e suporte prioritário.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 lg:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <span class="text-xs font-semibold text-red tracking-[0.2em] uppercase">Problemas que resolve</span>
+            <h2 class="font-heading text-4xl font-bold mt-4 mb-6">O que seu CRM <span class="gold-text">elimina</span></h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-red/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="phone-off" class="w-7 h-7 text-red"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Atendimento Caótico</h3><p class="text-text-secondary text-sm">Cada atendente no seu celular, conversas perdidas. CRM centraliza tudo em um inbox único.</p></div></div>
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="user-x" class="w-7 h-7 text-gold-dim"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Cliente Sem Retorno</h3><p class="text-text-secondary text-sm">Lead entra e ninguém responde. Automações garantem resposta imediata 24 horas por dia.</p></div></div>
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="file-search" class="w-7 h-7 text-gold"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Histórico Perdido</h3><p class="text-text-secondary text-sm">Atendente saiu e levou o histórico no WhatsApp pessoal. Com CRM, tudo fica salvo.</p></div></div>
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-red/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="clock" class="w-7 h-7 text-red"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Tempo Perdido</h3><p class="text-text-secondary text-sm">Sua equipe gasta horas respondendo as mesmas perguntas. Templates resolvem em segundos.</p></div></div>
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="eye-off" class="w-7 h-7 text-gold-dim"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Zero Visibilidade</h3><p class="text-text-secondary text-sm">Você não sabe quantos clientes entraram, quem atendeu. CRM entrega métricas em tempo real.</p></div></div>
+            <div class="reveal card-premium bg-bg-card border border-border rounded-3xl p-8 text-center spotlight cursor-default"><div class="relative z-10"><div class="w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-5"><i data-lucide="puzzle" class="w-7 h-7 text-gold"></i></div><h3 class="font-heading text-lg font-semibold mb-3">Soluções Genéricas</h3><p class="text-text-secondary text-sm">CRM de prateleira não se adapta ao seu negócio. O Exclusivo é para seus processos.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="py-20 px-6 bg-bg-card dot-pattern">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12 reveal">
+            <h2 class="font-heading text-4xl font-bold mb-6">Vamos desenhar seu <span class="gold-text">CRM Exclusivo.</span></h2>
+            <p class="text-lg text-text-secondary">Conte sobre seu negócio e receba uma proposta em até 12 horas.</p>
+        </div>
+        <form id="crmContactForm" class="max-w-xl mx-auto space-y-4 reveal">
+            <div class="grid sm:grid-cols-2 gap-4">
+                <input type="text" placeholder="Seu nome" required class="w-full bg-bg-elevated border border-border text-text-primary placeholder-text-muted rounded-xl px-5 py-3.5 text-sm focus:border-gold/30 transition-colors">
+                <input type="tel" placeholder="WhatsApp" required class="w-full bg-bg-elevated border border-border text-text-primary placeholder-text-muted rounded-xl px-5 py-3.5 text-sm focus:border-gold/30 transition-colors">
+            </div>
+            <input type="email" placeholder="Seu melhor e-mail" required class="w-full bg-bg-elevated border border-border text-text-primary placeholder-text-muted rounded-xl px-5 py-3.5 text-sm focus:border-gold/30 transition-colors">
+            <textarea rows="4" placeholder="Descreva seu negócio e o que precisa do CRM..." required class="w-full bg-bg-elevated border border-border text-text-primary placeholder-text-muted rounded-xl px-5 py-3.5 text-sm focus:border-gold/30 transition-colors resize-none"></textarea>
+            <button type="submit" class="btn-primary text-white w-full py-4 rounded-xl font-semibold text-lg cursor-pointer btn-magnetic">Solicitar Proposta</button>
+            <p class="text-text-muted text-xs text-center">Resposta em até 12 horas. Sem compromisso.</p>
+        </form>
+    </div>
+</section>
+
+<footer class="bg-bg-deep border-t border-border/60 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html"><img src="MARCA-LINHA.png" alt="D1 Consulting" class="h-6 w-auto"></a>
+        <p class="text-text-muted text-sm">&copy; 2026 D1 Consulting. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+lucide.createIcons();
+const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const staggerObs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const c=e.target.querySelectorAll('.reveal:not(.visible)');c.forEach((ch,i)=>{setTimeout(()=>ch.classList.add('visible'),i*80)});staggerObs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.grid').forEach(el=>{if(el.querySelector('.reveal'))staggerObs.observe(el)});
+document.querySelectorAll('.btn-magnetic').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.2}px)`});b.addEventListener('mouseleave',()=>b.style.transform='translate(0,0)')});
+document.querySelectorAll('.spotlight').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+document.getElementById('crmContactForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const btn=this.querySelector('button[type="submit"]');
+    btn.textContent='Enviado!';btn.style.background='linear-gradient(135deg,#16A34A,#15803D)';btn.disabled=true;
+    setTimeout(()=>{btn.textContent='Solicitar Proposta';btn.style.background='';btn.disabled=false;this.reset()},2800);
+});
+</script>
+</body>
+</html>
