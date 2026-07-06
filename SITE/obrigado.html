@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido recebido — D1OS Sites</title>
+    <meta name="theme-color" content="#050510">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    'bg-deep':'#050510','bg-card':'#0A0A20','bg-elevated':'#0E0E2A',
+                    border:'#1A1A3E','border-light':'#28286A',
+                    gold:'#C8A84E','gold-light':'#E2CC7A','gold-dim':'#8B7535',
+                    red:'#DC2626','red-hover':'#EF4444',
+                    'text-primary':'#F0EEE4','text-secondary':'#9090A0','text-muted':'#585878',
+                },
+                fontFamily: { heading:['Playfair Display','Georgia','serif'], body:['Sora','system-ui','sans-serif'] },
+            }},
+        }
+    </script>
+    <style>
+        *,*::before,*::after{box-sizing:border-box}
+        .gold-text{background:linear-gradient(135deg,#E2CC7A 0%,#C8A84E 40%,#8B7535 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .btn-primary{background:linear-gradient(135deg,#DC2626,#B91C1C);transition:all .25s cubic-bezier(0.16,1,0.3,1)}
+        .btn-primary:hover{background:linear-gradient(135deg,#EF4444,#DC2626);box-shadow:0 12px 32px rgba(220,38,38,.3);transform:translateY(-2px)}
+        .noise-overlay::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    </style>
+</head>
+<body class="font-body bg-bg-deep text-text-primary min-h-screen flex items-center justify-center px-6 py-12 noise-overlay">
+
+<div class="max-w-lg w-full">
+    <div class="text-center mb-10">
+        <a href="index.html"><img src="MARCA-LINHA.png" alt="D1 Consulting" class="h-10 w-auto mx-auto"></a>
+    </div>
+
+    <!-- PIX -->
+    <div id="pixSection" class="hidden bg-bg-card border border-border rounded-3xl p-8 lg:p-10 text-center">
+        <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="check" class="w-8 h-8 text-green-400"></i></div>
+        <h2 class="font-heading text-2xl font-bold mb-2">Pedido registrado!</h2>
+        <p class="text-text-secondary mb-8">Escaneie o QR Code ou copie o código PIX para pagar.</p>
+        <div class="bg-white rounded-2xl p-6 mb-6 inline-block"><div id="pixQrContainer" class="w-48 h-48 mx-auto bg-gray-100 rounded-xl flex items-center justify-center"><span class="text-text-muted text-xs">Carregando QR Code...</span></div></div>
+        <div class="bg-bg-elevated border border-border rounded-xl p-4 mb-4 text-left"><p class="text-xs text-text-muted mb-1">Código PIX (copiar e colar)</p><p id="pixCopyPaste" class="text-xs text-text-secondary break-all font-mono">---</p></div>
+        <button onclick="copyPix()" class="text-sm text-gold hover:text-gold-light transition-colors cursor-pointer mb-8 flex items-center gap-1 mx-auto"><i data-lucide="copy" class="w-4 h-4"></i> Copiar código</button>
+        <p class="text-text-muted text-xs mb-6">Pagamento confirmado, entraremos em contato para iniciar seu projeto.</p>
+        <a href="https://wa.me/5551994798139" target="_blank" class="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors cursor-pointer text-sm"><i data-lucide="message-circle" class="w-4 h-4"></i> Fale conosco no WhatsApp</a>
+    </div>
+
+    <!-- Boleto -->
+    <div id="boletoSection" class="hidden bg-bg-card border border-border rounded-3xl p-8 lg:p-10 text-center">
+        <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="file-text" class="w-8 h-8 text-green-400"></i></div>
+        <h2 class="font-heading text-2xl font-bold mb-2">Boleto gerado!</h2>
+        <p class="text-text-secondary mb-6">O boleto foi aberto. Se não abriu, clique abaixo.</p>
+        <a href="#" id="boletoLink" target="_blank" class="btn-primary inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer mb-6"><i data-lucide="barcode" class="w-4 h-4"></i> Abrir boleto</a>
+        <p class="text-text-muted text-xs mb-6">Vence em 3 dias úteis. Após pagamento, entraremos em contato.</p>
+        <a href="https://wa.me/5551994798139" target="_blank" class="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors cursor-pointer text-sm"><i data-lucide="message-circle" class="w-4 h-4"></i> Fale conosco no WhatsApp</a>
+    </div>
+
+    <!-- CRM -->
+    <div id="crmSection" class="hidden bg-bg-card border border-border rounded-3xl p-8 lg:p-10 text-center">
+        <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="briefcase" class="w-8 h-8 text-gold"></i></div>
+        <h2 class="font-heading text-2xl font-bold mb-2">Solicitação recebida!</h2>
+        <p class="text-text-secondary mb-8">Um especialista da D1 Consulting entrará em contato em até 12 horas para discutir seu projeto de CRM Exclusivo.</p>
+        <a href="https://wa.me/5551994798139" target="_blank" class="btn-primary inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer mb-8"><i data-lucide="message-circle" class="w-4 h-4"></i> Falar no WhatsApp agora</a>
+        <p class="text-text-muted text-xs">Você também receberá um e-mail de confirmação.</p>
+    </div>
+
+    <!-- Paid -->
+    <div id="paidSection" class="hidden bg-bg-card border border-border rounded-3xl p-8 lg:p-10 text-center">
+        <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6"><i data-lucide="check-circle" class="w-8 h-8 text-green-400"></i></div>
+        <h2 class="font-heading text-2xl font-bold mb-2">Pagamento confirmado!</h2>
+        <p class="text-text-secondary mb-8">Em até 12 horas entraremos em contato para alinhar o início do projeto.</p>
+        <a href="https://wa.me/5551994798139" target="_blank" class="btn-primary inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl text-sm font-semibold cursor-pointer mb-8"><i data-lucide="message-circle" class="w-4 h-4"></i> Falar no WhatsApp agora</a>
+        <p class="text-text-muted text-xs">Você também receberá um e-mail com os próximos passos.</p>
+    </div>
+
+    <div class="text-center mt-8">
+        <a href="index.html" class="text-sm text-text-muted hover:text-text-primary transition-colors cursor-pointer flex items-center gap-1 justify-center"><i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar para o site</a>
+    </div>
+</div>
+
+<script>
+lucide.createIcons();
+const params=new URLSearchParams(window.location.search);
+const status=params.get('status');
+if(status==='pix'){document.getElementById('pixSection').classList.remove('hidden');const qr=sessionStorage.getItem('pixQrCode'),cp=sessionStorage.getItem('pixCopyPaste');if(qr){const img=document.createElement('img');img.src=qr;img.alt='QR Code PIX';img.className='w-48 h-48';const c=document.getElementById('pixQrContainer');c.innerHTML='';c.appendChild(img)}if(cp)document.getElementById('pixCopyPaste').textContent=cp}
+else if(status==='boleto'){document.getElementById('boletoSection').classList.remove('hidden');document.getElementById('boletoLink').href=sessionStorage.getItem('boletoUrl')||'#'}
+else if(status==='crm')document.getElementById('crmSection').classList.remove('hidden');
+else document.getElementById('paidSection').classList.remove('hidden');
+
+function copyPix(){const t=document.getElementById('pixCopyPaste').textContent;navigator.clipboard.writeText(t).then(()=>{alert('Código PIX copiado!')}).catch(()=>{prompt('Copie o código:',t)})}
+</script>
+</body>
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luís Eduardo Santos Scheuer — Advocacia Criminal</title>
+  <meta name="description" content="Advocacia Criminal especializada em Tribunal do Júri. Luís Eduardo Santos Scheuer — OAB/RS 113.488. São Luiz Gonzaga - RS. Atendimento presencial e online.">
+  <meta name="theme-color" content="#0c1628">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 50: '#f0f3f8', 100: '#d9e0ed', 200: '#b3c0db', 300: '#8da1c9', 400: '#6681b7', 500: '#4061a5', 600: '#334e84', 700: '#263a63', 800: '#1a2744', 900: '#0c1628', 950: '#060e19' },
+            gold: { 50: '#fdf8f0', 100: '#f5e8c9', 200: '#ecd19c', 300: '#e0b66a', 400: '#d4a853', 500: '#c9a84c', 600: '#a8883d', 700: '#876a2e', 800: '#664e1f', 900: '#453410', 950: '#241b08' },
+            cream: '#f5f0eb',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --navy: #0c1628;
+      --navy-light: #1a2744;
+      --gold: #c9a84c;
+      --gold-light: #d4a853;
+      --cream: #f5f0eb;
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { -webkit-tap-highlight-color: transparent; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--cream);
+      color: #1a1a2e;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: var(--navy); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* Aurora background for hero */
+    .aurora-hero {
+      position: relative;
+      background: linear-gradient(135deg, #0c1628 0%, #1a2744 50%, #0c1628 100%);
+    }
+    .aurora-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      animation: auroraShift 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes auroraShift {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+      100% { transform: scale(1.08) rotate(2deg); opacity: 1; }
+    }
+
+    /* Gold glow orbs */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      pointer-events: none;
+      animation: orbFloat 20s ease-in-out infinite alternate;
+    }
+    .glow-orb:nth-child(1) { width: 500px; height: 500px; background: var(--gold); top: -200px; left: -200px; }
+    .glow-orb:nth-child(2) { width: 400px; height: 400px; background: var(--gold); bottom: -150px; right: -150px; animation-delay: -8s; }
+    .glow-orb:nth-child(3) { width: 300px; height: 300px; background: #4061a5; top: 50%; left: 60%; animation-delay: -14s; opacity: 0.08; }
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(30px, -10px) scale(1.05); }
+    }
+
+    /* Nav */
+    nav {
+      transition: all 0.3s var(--ease-smooth);
+    }
+    nav.scrolled {
+      background: rgba(12, 22, 40, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s var(--ease-smooth);
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after { width: 100%; }
+
+    /* Gold divider */
+    .gold-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto;
+    }
+    .gold-divider-left { margin: 0; }
+
+    /* Cards */
+    .practice-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), transparent 50%, rgba(201, 168, 76, 0.1));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s var(--ease-smooth);
+    }
+    .practice-card:hover::before { opacity: 1; }
+    .practice-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201, 168, 76, 0.25);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    .practice-card .icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(201, 168, 76, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: all 0.3s var(--ease-smooth);
+    }
+    .practice-card:hover .icon-wrap {
+      background: rgba(201, 168, 76, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Section transitions */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+    }
+    .fade-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+    }
+    .fade-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+    }
+    .stagger-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Button */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s var(--ease-smooth);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-gold:hover {
+      background: #d4a853;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+    }
+    .btn-gold:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      background: transparent;
+      color: var(--cream);
+      font-weight: 500;
+      border-radius: 8px;
+      border: 1.5px solid rgba(201, 168, 76, 0.4);
+      transition: all 0.3s var(--ease-smooth);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.1);
+    }
+    .btn-outline:active { transform: translateY(0); }
+
+    /* Card for light section */
+    .service-card {
+      background: white;
+      border: 1px solid rgba(12, 22, 40, 0.06);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-smooth);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+      border-color: rgba(201, 168, 76, 0.2);
+    }
+
+    /* Social link hover */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      transition: all 0.3s var(--ease-smooth);
+    }
+    .social-link:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
+    }
+    .social-link:hover svg { color: var(--navy); }
+
+    /* Form */
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: white;
+      border: 1.5px solid rgba(12, 22, 40, 0.1);
+      border-radius: 8px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      color: #1a1a2e;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+    }
+    .form-input::placeholder { color: #94a3b8; }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 22, 40, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease-smooth);
+    }
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      color: var(--cream);
+      font-size: 1.5rem;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    .hamburger { cursor: pointer; z-index: 50; position: relative; }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      margin: 5px 0;
+      transition: all 0.3s var(--ease-smooth);
+      border-radius: 1px;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Stats */
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.25rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .stat-number { font-size: 2rem; }
+      .hero-name { font-size: 2.25rem !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .fade-up, .fade-left, .fade-right, .stagger-item { opacity: 1; transform: none; }
+    }
+
+    /* Focus visible for accessibility */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a href="#areas" onclick="closeMobileMenu()">Áreas</a>
+    <a href="#atendimento" onclick="closeMobileMenu()">Atendimento</a>
+    <a href="#contato" onclick="closeMobileMenu()">Contato</a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-30 px-6 lg:px-12 py-4" role="navigation" aria-label="Navegação principal">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/balanca.png" alt="" class="h-9 w-auto" aria-hidden="true">
+        <span class="text-cream font-display text-lg font-semibold tracking-tight hidden sm:block">L.E. Scheuer</span>
+        <span class="hidden lg:inline text-cream/30 text-xs font-sans font-medium tracking-[0.15em] uppercase">Advocacia Criminal</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#sobre" class="nav-link text-sm text-cream/80 hover:text-gold-400 font-medium tracking-wide uppercase">Sobre</a>
+        <a href="#areas" class="nav-link text-sm text-cream/80 hover:text-gold-400 font-medium tracking-wide uppercase">Áreas</a>
+        <a href="#atendimento" class="nav-link text-sm text-cream/80 hover:text-gold-400 font-medium tracking-wide uppercase">Atendimento</a>
+        <a href="#contato" class="nav-link text-sm text-cream/80 hover:text-gold-400 font-medium tracking-wide uppercase">Contato</a>
+      </div>
+      <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-gold text-sm py-2 px-5" aria-label="Fale pelo WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+        WhatsApp
+      </a>
+      <div class="md:hidden hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="aurora-hero min-h-[100dvh] flex items-center relative overflow-hidden">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[320px] md:w-[420px] lg:w-[520px] opacity-[0.06] pointer-events-none hidden lg:block">
+      <img src="assets/balanca.png" alt="" class="w-full h-auto" aria-hidden="true">
+    </div>
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 py-24 md:py-32">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-3 mb-6 reveal">
+          <span class="inline-block px-4 py-1.5 bg-gold-500/10 border border-gold-500/20 rounded-full text-gold-400 text-xs font-semibold tracking-wider uppercase">OAB/RS 113.488</span>
+          <span class="text-cream/40 text-sm">—</span>
+          <span class="text-cream/60 text-sm">São Luiz Gonzaga - RS</span>
+        </div>
+
+        <h1 class="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-cream leading-[1.08] tracking-tight mb-6 reveal">
+          Luís Eduardo<br>
+          <span class="text-gold-400">Santos Scheuer</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl leading-relaxed mb-10 reveal">
+          Advocacia Criminal com atuação especializada em <strong class="text-cream/90 font-medium">Tribunal do Júri</strong>. Defesa técnica, estratégia processual e compromisso inabalável com o devido processo legal.
+        </p>
+
+        <div class="flex flex-wrap gap-4 reveal">
+          <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="btn-gold" aria-label="Fale pelo WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            Fale pelo WhatsApp
+          </a>
+          <a href="#areas" class="btn-outline">
+            Áreas de Atuação
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="sobre" class="py-24 lg:py-32 px-6 lg:px-12 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div class="fade-left">
+          <span class="inline-block text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Sobre</span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy-900 leading-tight tracking-tight mb-6">
+            Advocacia Criminal com<br>
+            <span class="text-gold-600">Excelência e Dedicação</span>
+          </h2>
+          <div class="gold-divider-left mb-6"></div>
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-4">
+            Luís Eduardo Santos Scheuer é advogado criminalista inscrito na OAB/RS sob o nº 113.488, com atuação predominante no Tribunal do Júri e em todas as fases do processo penal. Com sede em São Luiz Gonzaga, interior do Rio Grande do Sul, atende presencialmente na região e virtualmente em todo o estado.
+          </p>
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+            Sua prática jurídica abrange desde o acompanhamento de inquéritos policiais até a sustentação oral em plenário do Júri, sempre orientada por uma defesa técnica robusta, pelo respeito aos direitos fundamentais e pelo compromisso com a justiça.
+          </p>
+        </div>
+
+        <div class="fade-right">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="service-card text-center">
+              <div class="stat-number">441</div>
+              <div class="stat-label">Processos Públicos</div>
+            </div>
+            <div class="service-card text-center">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Como Advogado</div>
+            </div>
+            <div class="service-card text-center">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Atuação no RS</div>
+            </div>
+            <div class="service-card text-center">
+              <div class="stat-number">32</div>
+              <div class="stat-label">Publicações</div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 text-center mt-4">* Dados de processos públicos (Escavador)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas -->
+  <section id="areas" class="py-24 lg:py-32 px-6 lg:px-12 bg-navy-900 relative overflow-hidden">
+    <div class="glow-orb" style="width:600px;height:600px;background:var(--gold);top:-300px;right:-200px;opacity:0.05;"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Áreas de Atuação</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-cream leading-tight tracking-tight mb-4">
+          Especialização em<br>
+          <span class="text-gold-400">Direito Criminal</span>
+        </h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Tribunal do Júri</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Defesa técnica em plenário, sustentação oral, estratégia de julgamento e recurso para crimes dolosos contra a vida.</p>
+        </div>
+
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Defesa Criminal</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Acompanhamento integral em ações penais, desde a fase de investigação até a execução penal, com estratégia personalizada.</p>
+        </div>
+
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Inquéritos Policiais</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Acompanhamento desde a fase investigativa, com atuação na delegacia e requerimentos ao judiciário para garantia de direitos.</p>
+        </div>
+
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Ações Penais</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Atuação em todas as fases do processo penal, incluindo alegações finais, recursos ordinários e extraordinários.</p>
+        </div>
+
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Direitos Humanos</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Proteção de direitos fundamentais no âmbito penal, com atuação em habeas corpus e revisões criminais.</p>
+        </div>
+
+        <div class="practice-card stagger-item">
+          <div class="icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="text-cream text-lg font-semibold mb-2">Recursos Criminais</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">Elaboração e sustentação de recursos junto aos Tribunais Superiores, incluindo STJ e STF.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attendance -->
+  <section id="atendimento" class="py-24 lg:py-32 px-6 lg:px-12 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-gold-600 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Atendimento</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy-900 leading-tight tracking-tight mb-4">
+          Presencial e <span class="text-gold-600">Online</span>
+        </h2>
+        <p class="text-gray-500 text-lg max-w-xl mx-auto">Atendimento humanizado e acessível em todo o Rio Grande do Sul</p>
+        <div class="gold-divider mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="service-card p-8 fade-left">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy-900 mb-2">Atendimento Presencial</h3>
+          <p class="text-gray-500 leading-relaxed mb-4">
+            São Luiz Gonzaga - RS e região. Agende seu horário para atendimento personalizado em nosso escritório.
+          </p>
+          <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gold-600 font-medium text-sm hover:text-gold-700 transition-colors">
+            Agendar presencial
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="service-card p-8 fade-right">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy-900 mb-2">Atendimento Online</h3>
+          <p class="text-gray-500 leading-relaxed mb-4">
+            Atendimento virtual para todo o Rio Grande do Sul por videoconferência. Conforto e segurança jurídica de onde estiver.
+          </p>
+          <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gold-600 font-medium text-sm hover:text-gold-700 transition-colors">
+            Agendar online
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contato" class="py-24 lg:py-32 px-6 lg:px-12 bg-navy-900 relative overflow-hidden">
+    <div class="glow-orb" style="width:500px;height:500px;background:var(--gold);bottom:-200px;left:-200px;opacity:0.05;"></div>
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-16 fade-up">
+        <span class="inline-block text-gold-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Contato</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-cream leading-tight tracking-tight mb-4">
+          Entre em <span class="text-gold-400">Contato</span>
+        </h2>
+        <p class="text-cream/50 text-lg max-w-xl mx-auto">Estou pronto para atender você</p>
+        <div class="gold-divider mt-6"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div class="space-y-8 fade-left">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center shrink-0 mt-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-cream font-semibold mb-1">WhatsApp</h3>
+              <p class="text-cream/50 text-sm mb-2">Respondo em até 24h úteis</p>
+              <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors font-medium">
+                (55) 9999-59549
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center shrink-0 mt-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <h3 class="text-cream font-semibold mb-1">Instagram</h3>
+              <p class="text-cream/50 text-sm mb-2">Acompanhe meu trabalho</p>
+              <a href="https://www.instagram.com/luiseduardoscheuer/" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors font-medium">
+                @luiseduardoscheuer
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center shrink-0 mt-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h3 class="text-cream font-semibold mb-1">E-mail</h3>
+              <p class="text-cream/50 text-sm mb-2">Para contato formal</p>
+              <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 transition-colors font-medium">
+                Enviar mensagem
+              </a>
+            </div>
+          </div>
+
+          <div class="pt-4 flex gap-3">
+            <a href="https://www.instagram.com/luiseduardoscheuer/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/Luis-Eduardo-Santos-Scheuer-Advogado-Criminalista-112132885076326/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/5555999959549" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-right">
+          <form id="contactForm" class="space-y-5" novalidate>
+            <div>
+              <label for="name" class="block text-cream/80 text-sm font-medium mb-1.5">Nome</label>
+              <input type="text" id="name" class="form-input" placeholder="Seu nome" required>
+            </div>
+            <div>
+              <label for="email" class="block text-cream/80 text-sm font-medium mb-1.5">E-mail</label>
+              <input type="email" id="email" class="form-input" placeholder="seu@email.com" required>
+            </div>
+            <div>
+              <label for="phone" class="block text-cream/80 text-sm font-medium mb-1.5">Telefone</label>
+              <input type="tel" id="phone" class="form-input" placeholder="(55) 99999-0000">
+            </div>
+            <div>
+              <label for="message" class="block text-cream/80 text-sm font-medium mb-1.5">Mensagem</label>
+              <textarea id="message" rows="4" class="form-input resize-none" placeholder="Como posso ajudar?" required></textarea>
+            </div>
+            <button type="submit" class="btn-gold w-full justify-center" id="submitBtn">
+              Enviar Mensagem
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-950 border-t border-gold-500/5 py-12 px-6 lg:px-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <img src="assets/balanca.png" alt="" class="h-10 w-auto" aria-hidden="true">
+          <div>
+            <p class="text-cream/80 text-sm font-display font-semibold">L.E. Scheuer</p>
+            <p class="text-cream/30 text-xs">Advocacia Criminal</p>
+          </div>
+        </div>
+        <p class="text-cream/20 text-xs text-center md:text-right">
+          &copy; 2026 L.E. Scheuer — Advocacia Criminal. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.getElementById('hamburger');
+      menu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Nav scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', scrollY > 60);
+    }, { passive: true });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => observer.observe(el));
+
+    // Stagger items
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll('.stagger-item');
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add('visible'), i * 100);
+          });
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.stagger-item').forEach(el => {
+      const parent = el.closest('.grid');
+      if (parent) staggerObserver.observe(parent);
+    });
+
+    // Hero reveal animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroEls = document.querySelectorAll('.hero .reveal');
+      heroEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200 + i * 150);
+      });
+
+      // Hero section already has the right structure - use .reveal class
+      document.querySelectorAll('.hero .reveal').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+      });
+      // Re-trigger after a frame
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+          setTimeout(() => {
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 100 + i * 150);
+        });
+      });
+    });
+
+    // Fix hero reveal - the section uses aurora-hero not hero class
+    setTimeout(() => {
+      const heroEls = document.querySelectorAll('#hero .reveal');
+      heroEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200 + i * 150);
+      });
+    }, 50);
+
+    // Form handling
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Enviando... <svg class="animate-spin inline w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="80" stroke-dashoffset="60"/></svg>';
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // WhatsApp fallback: send via WhatsApp
+        const text = `*Novo contato do site*%0A%0A*Nome:* ${encodeURIComponent(name)}%0A*E-mail:* ${encodeURIComponent(email)}%0A*Telefone:* ${encodeURIComponent(phone)}%0A*Mensagem:* ${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/5555999959549?text=${text}`;
+
+        setTimeout(() => {
+          form.innerHTML = `
+            <div class="text-center py-8">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gold-500/10 flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <h3 class="text-cream text-xl font-semibold mb-2">Mensagem enviada!</h3>
+              <p class="text-cream/50 mb-4">Você será redirecionado para o WhatsApp.</p>
+              <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn-gold text-sm">Abrir WhatsApp</a>
+            </div>
+          `;
+          window.open(whatsappUrl, '_blank');
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+</html>
